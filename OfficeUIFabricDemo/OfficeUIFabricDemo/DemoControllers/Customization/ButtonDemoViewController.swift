@@ -26,7 +26,7 @@ class ButtonDemoViewController: UIViewController {
     @IBAction func toggleButtonTap(_ sender: AnyObject) {
         if let button = sender as? UIButton {
             button.isSelected = !button.isSelected
-            button.tintColor = button.titleColor(for: button.isSelected ? UIControlState.selected : UIControlState())
+            button.tintColor = button.titleColor(for: button.isSelected ? UIControl.State.selected : UIControl.State())
         }
     }
 }
