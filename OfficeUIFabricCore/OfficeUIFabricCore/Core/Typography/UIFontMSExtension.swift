@@ -9,7 +9,7 @@ extension UIFont {
     
     public class func msFont(style: MSFontStyle, weight: MSFontWeight) -> UIFont? {
         if #available(iOS 8.2, *) {
-            return self.systemFont(ofSize: MSFontConstants.msFontSize(style: style), weight: MSFontConstants.fontWeight(msFontWeight: weight))
+            return self.systemFont(ofSize: MSFontConstants.msFontSize(style: style), weight: UIFont.Weight(rawValue: MSFontConstants.fontWeight(msFontWeight: weight)))
         }
         return self.systemFont(ofSize: MSFontConstants.msFontSize(style: style))
     }

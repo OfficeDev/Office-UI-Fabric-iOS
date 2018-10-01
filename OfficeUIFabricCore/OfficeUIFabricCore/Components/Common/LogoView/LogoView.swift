@@ -19,7 +19,7 @@ open class LogoView: UIView {
     }
     
     private func setupSubviews() {
-        self.imageView.contentMode = UIViewContentMode.scaleAspectFit
+        self.imageView.contentMode = UIView.ContentMode.scaleAspectFit
         self.imageView.clipsToBounds = true
         self.initialsView.clipsToBounds = true
         self.setupSubview(subview: self.imageView)

@@ -41,10 +41,10 @@ public struct MSFontConstants {
     @available(iOS 8.2, *)
     internal static func fontWeight(msFontWeight: MSFontWeight) -> CGFloat {
         switch msFontWeight {
-        case .Light: return UIFontWeightThin
-        case .SemiLight: return UIFontWeightLight
-        case .Regular: return UIFontWeightRegular
-        case .Semibold: return UIFontWeightSemibold
+        case .Light: return UIFont.Weight.thin.rawValue
+        case .SemiLight: return UIFont.Weight.light.rawValue
+        case .Regular: return UIFont.Weight.regular.rawValue
+        case .Semibold: return UIFont.Weight.semibold.rawValue
         }
     }
     

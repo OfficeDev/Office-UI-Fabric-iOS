@@ -29,13 +29,13 @@ extension UIImage {
         
         UIGraphicsEndImageContext()
         
-        return UIImage(cgImage: bgImage!.cgImage!, scale: scale, orientation: UIImageOrientation.up)
+        return UIImage(cgImage: bgImage!.cgImage!, scale: scale, orientation: UIImage.Orientation.up)
             .resizableImage(
-                withCapInsets: UIEdgeInsetsMake(
-                    cornerRadius + strokeWidth,
-                    cornerRadius + strokeWidth,
-                    cornerRadius + strokeWidth,
-                    cornerRadius + strokeWidth
-                ), resizingMode: UIImageResizingMode.stretch)
+                withCapInsets: UIEdgeInsets.init(
+                    top: cornerRadius + strokeWidth,
+                    left: cornerRadius + strokeWidth,
+                    bottom: cornerRadius + strokeWidth,
+                    right: cornerRadius + strokeWidth
+                ), resizingMode: UIImage.ResizingMode.stretch)
     }
 }

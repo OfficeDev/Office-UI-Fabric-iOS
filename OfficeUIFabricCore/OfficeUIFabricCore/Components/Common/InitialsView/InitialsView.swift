@@ -35,10 +35,10 @@ open class InitialsView: UIView {
     private func setUpConstraints() {
         let views = ["label": self.initialsLabel]
         
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[label]-0-|", options: NSLayoutFormatOptions.alignAllCenterX, metrics: nil, views: views)
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[label]-0-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterX, metrics: nil, views: views)
         self.addConstraints(horizontalConstraints)
         
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[label]-0-|", options: NSLayoutFormatOptions.alignAllCenterY, metrics: nil, views: views)
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[label]-0-|", options: NSLayoutConstraint.FormatOptions.alignAllCenterY, metrics: nil, views: views)
         self.addConstraints(verticalConstraints)
     }
     

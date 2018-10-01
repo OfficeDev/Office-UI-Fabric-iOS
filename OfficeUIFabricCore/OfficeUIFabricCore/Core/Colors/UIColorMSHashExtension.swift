@@ -10,7 +10,7 @@ extension UIColor {
         let rgbGreen: [CGFloat] = [120, 130, 124,  23,   0,  17,  59, 111, 94,  78,   0,  37]
         let rgbBlue:  [CGFloat] = [215, 114,  16, 152, 158,  35,   1, 148, 80, 140,   0, 127]
         
-        for char in hash.characters {
+        for char in hash {
             let s = String(char).unicodeScalars
             randomNum = randomNum + UInt64(s[s.startIndex].value)
             randomNum = randomNum &* 3074457345618258799

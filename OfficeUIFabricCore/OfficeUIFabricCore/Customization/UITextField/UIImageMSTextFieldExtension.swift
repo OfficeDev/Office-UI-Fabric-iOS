@@ -25,14 +25,14 @@ extension UIImage {
         
         UIGraphicsEndImageContext()
         
-        return UIImage(cgImage: bgImage!.cgImage!, scale: scale, orientation: UIImageOrientation.up)
+        return UIImage(cgImage: bgImage!.cgImage!, scale: scale, orientation: UIImage.Orientation.up)
             .resizableImage(
-                withCapInsets: UIEdgeInsetsMake(
-                    innerImageInsets + strokeWidth,
-                    innerImageInsets + strokeWidth,
-                    innerImageInsets + strokeWidth,
-                    innerImageInsets + strokeWidth
-                ), resizingMode: UIImageResizingMode.stretch)
+                withCapInsets: UIEdgeInsets.init(
+                    top: innerImageInsets + strokeWidth,
+                    left: innerImageInsets + strokeWidth,
+                    bottom: innerImageInsets + strokeWidth,
+                    right: innerImageInsets + strokeWidth
+                ), resizingMode: UIImage.ResizingMode.stretch)
     }
     
     class func msTextFieldUnderlineBackground(borderColor: UIColor, fillColor: UIColor, scale: CGFloat = UIScreen.main.scale) -> UIImage {
@@ -60,13 +60,13 @@ extension UIImage {
         
         UIGraphicsEndImageContext()
         
-        return UIImage(cgImage: bgImage!.cgImage!, scale: scale, orientation: UIImageOrientation.up)
+        return UIImage(cgImage: bgImage!.cgImage!, scale: scale, orientation: UIImage.Orientation.up)
             .resizableImage(
-                withCapInsets: UIEdgeInsetsMake(
-                    innerImageInsets + strokeWidth,
-                    innerImageInsets + strokeWidth,
-                    innerImageInsets + strokeWidth,
-                    innerImageInsets + strokeWidth
-                ), resizingMode: UIImageResizingMode.stretch)
+                withCapInsets: UIEdgeInsets.init(
+                    top: innerImageInsets + strokeWidth,
+                    left: innerImageInsets + strokeWidth,
+                    bottom: innerImageInsets + strokeWidth,
+                    right: innerImageInsets + strokeWidth
+                ), resizingMode: UIImage.ResizingMode.stretch)
     }
 }

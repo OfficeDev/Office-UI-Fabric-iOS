@@ -7,13 +7,13 @@ extension UITextField {
     // MARK: TextField Background
     
     public func msTextFieldBox(borderColor: UIColor = UIColor.msNeutralSecondaryAlt(), backgroundColor: UIColor = UIColor.clear, leftPadding: CGFloat = MSTextFieldConstants.DefaultPadding) {
-        self.borderStyle = UITextBorderStyle.none
+        self.borderStyle = UITextField.BorderStyle.none
         self.background = UIImage.msTextFieldBoxBackground(borderColor: borderColor, fillColor: backgroundColor)
         self.setLeftPadding(padding: leftPadding)
     }
     
     public func msTextFieldUnderline(borderColor: UIColor = UIColor.msNeutralSecondaryAlt(), backgroundColor: UIColor = UIColor.clear, leftPadding: CGFloat = MSTextFieldConstants.DefaultPadding) {
-        self.borderStyle = UITextBorderStyle.none
+        self.borderStyle = UITextField.BorderStyle.none
         self.background = UIImage.msTextFieldUnderlineBackground(borderColor: borderColor, fillColor: backgroundColor)
         self.setLeftPadding(padding: leftPadding)
     }
@@ -21,7 +21,7 @@ extension UITextField {
     private func setLeftPadding(padding: CGFloat) {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: 0))
         self.leftView = paddingView
-        self.leftViewMode = UITextFieldViewMode.always
+        self.leftViewMode = UITextField.ViewMode.always
     }
     
     // MARK: TextField Font Style
@@ -43,14 +43,14 @@ extension UITextField {
     
     public func msTextFieldPlaceholderText(text: String, placeholderColor: UIColor = UIColor.msNeutralSecondary(), font: UIFont? = nil) {
         if let font = font {
-            self.attributedPlaceholder = NSAttributedString(string: text, attributes: [
-                NSForegroundColorAttributeName: placeholderColor,
-                NSFontAttributeName: font
-            ]);
+            self.attributedPlaceholder = NSAttributedString(string: text, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): placeholderColor,
+                convertFromNSAttributedStringKey(NSAttributedString.Key.font): font
+            ]));
         } else {
-            self.attributedPlaceholder = NSAttributedString(string: text, attributes: [
-                NSForegroundColorAttributeName: placeholderColor
-            ]);
+            self.attributedPlaceholder = NSAttributedString(string: text, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): placeholderColor
+            ]));
         }
     }
     
@@ -70,6 +70,17 @@ extension UITextField {
             size: CGSize(width: placeholderLabel.frame.width + padding, height: self.frame.size.height)
         )
         self.leftView = placeholderLabel
-        self.leftViewMode = UITextFieldViewMode.always
+        self.leftViewMode = UITextField.ViewMode.always
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }
